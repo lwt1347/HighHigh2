@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour {
         for (int i=0; i< moveBackGround_Physics.Length; i++) {
             moveBackGround_Physics[i].GameUpdate();
         }
+
         //발판 정보 // player.GameUpdate(); 보다 아래에 존재해야한다.
         for (int i = 0; i < scaffoldGround.Length; i++)
         {

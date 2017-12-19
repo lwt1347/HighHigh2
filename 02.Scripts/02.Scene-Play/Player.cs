@@ -12,6 +12,9 @@ public class Player : Singleton<Player>, IGameObject
     [SerializeField]
     private Animator anim;
 
+    [SerializeField]
+    public BoxCollider2D boxCollider2D;
+
 
 
     //플레이어 기본 정보
@@ -31,9 +34,11 @@ public class Player : Singleton<Player>, IGameObject
 
     //슈퍼 점프를 막기위한 OnTriggerStay2D(Collider2D other)에 사용될 타임 카운트 변수
     private float jumpTimer = 0.0f;
-    private float jumpWaitingTime = 0.1f;
+    private float jumpWaitingTime = 0.05f;
 
-
+    //캐릭터가 낙하중인지 판단하기 위한 변수
+ 
+    private bool dirctionFlag = false;
 
     private void Awake()
     {
@@ -57,38 +62,28 @@ public class Player : Singleton<Player>, IGameObject
         {
             return dirctionFlag;
         }
-    }//playerDirctionFlag
-
-    private float beforeYPosition = 0f;
-    private bool dirctionFlag = false;
-
-
+    }//public bool playerDirctionFlag 종료
 
     public void GameUpdate()
     {
 
         ////캐릭터가 낙하중인지 판단한다.
-        if ((beforeYPosition - this.transform.position.y) > 0)
+        if (rb.velocity.y < 0)
         {
             playerDirctionFlag = true;
             //Debug.Log("하강");
         }
-        else
+        else if(rb.velocity.y >= 0) //상승
         {
             playerDirctionFlag = false;
         }
-        beforeYPosition = this.transform.position.y;
-
-
-
-
+        
+        
         //x 방향으로 가할 힘
         float xForce = horizontal * speed * Time.deltaTime;
         this.gameObject.transform.Translate(xForce, 0, 0);
 
-
-
-
+        
         if (jumpState)
         {
             //점프 버튼
@@ -106,6 +101,8 @@ public class Player : Singleton<Player>, IGameObject
         
     }//public void GameUpdate() 종료
 
+
+
     private void DirectionInit(int direction) //0오른쪽, 1왼쪽
     {
         if (direction == 0)
@@ -120,7 +117,9 @@ public class Player : Singleton<Player>, IGameObject
             rightSite = false;
             anim.SetBool("IsSite", false);
         }
-    }
+    }//DirectionInit(int direction) 종료
+
+
 
     private void FixedUpdate()
     {
@@ -184,7 +183,7 @@ public class Player : Singleton<Player>, IGameObject
     //슈퍼 점프를 막을 수 있다. OnTriggerStay2D()에 접하는 시간은 최대 0.4f
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("Ground") && other.isTrigger == false)
+        if ((other.CompareTag("ScaffoldGround") || other.CompareTag("Ground")) && other.isTrigger == false)
         {
             jumpTimer += Time.deltaTime;
             if (jumpTimer > jumpWaitingTime)
@@ -197,13 +196,32 @@ public class Player : Singleton<Player>, IGameObject
             
         }
     }//OnTriggerStay2D() 종료
-
-    private void OnTriggerExit2D(Collider2D collision)
+    
+    private void OnTriggerExit2D(Collider2D other)
     {
         //캐릭터가 낙하 중일때는 점프 할 수 없다.
         jumpState = false;
-    }//OnTriggerExit2D() 종료
 
+        //if (other.CompareTag("ScaffoldGround"))
+        //{
+        //    other.isTrigger = true;
+        //    Debug.Log("아웃");
+        //}
+
+
+
+    }//OnTriggerExit2D(Collider2D other) 종료
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+ 
+        //if (other.CompareTag("ScaffoldGround") && playerDirctionFlag)
+        //{
+        //    other.isTrigger = false;
+        //    Debug.Log("착치");
+        //}
+        //Debug.Log("착치@@@");
+    }//OnTriggerEnter2D(Collider2D other) 종료
 
 
 }
