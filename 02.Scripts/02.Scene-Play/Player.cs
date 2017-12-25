@@ -13,16 +13,14 @@ public class Player : Singleton<Player>, IGameObject
     private Animator anim;
 
     [SerializeField]
-    public BoxCollider2D boxCollider2D;
-
-
+    private BoxCollider2D boxCollider2D;
 
     //플레이어 기본 정보
     private int hp = 1;
     private int initHp = 1;
     private float speed = 3.0f;
     private float jump = 400.0f;
-    private bool jumpState = true;
+    public bool jumpState = true; //카메라가 점프가 불가능한 시점에만 플레이어를 추적한다. //카메라 플레이어 참조
 
     private float horizontal;
     private float vertical;
@@ -30,6 +28,7 @@ public class Player : Singleton<Player>, IGameObject
     //캐릭터가 보고 있는 방향
     private bool leftSite;
     private bool rightSite;
+    
 
 
     //슈퍼 점프를 막기위한 OnTriggerStay2D(Collider2D other)에 사용될 타임 카운트 변수
@@ -47,12 +46,11 @@ public class Player : Singleton<Player>, IGameObject
 
         //초기 시작 오른쪽 향함
         DirectionInit(0);
+        
 
     }//private void Awake() 종료
-
-
-
-    public bool playerDirctionFlag           //true = 하강, false = 상승
+    
+    public bool playerDirctionFlag //true = 하강, false = 상승
     {
         set
         {
@@ -63,32 +61,23 @@ public class Player : Singleton<Player>, IGameObject
             return dirctionFlag;
         }
     }//public bool playerDirctionFlag 종료
-
+    
     public void GameUpdate()
     {
-
-        ////캐릭터가 낙하중인지 판단한다.
-        if (rb.velocity.y < 0)
-        {
-            playerDirctionFlag = true;
-            //Debug.Log("하강");
-        }
-        else if(rb.velocity.y >= 0) //상승
-        {
-            playerDirctionFlag = false;
-        }
         
+        //좌우 키보드 입력.
+        horizontal = Input.GetAxis("Horizontal");
         
         //x 방향으로 가할 힘
         float xForce = horizontal * speed * Time.deltaTime;
         this.gameObject.transform.Translate(xForce, 0, 0);
 
-        
         if (jumpState)
         {
             //점프 버튼
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
+
                 //땅에 닿으면 한번 위로 올려준다음 Add포스를 사용. 이유: 충돌 판정후에 즉각적으로 올라오지 않고 점프키를 난타하면 점프를 못할 경우 발생.
                 this.gameObject.transform.Translate(0, 0.3f, 0);
                 //translate 와 AddForce의 차이점 = 전자는 +1 만큼 이동 시키고,
@@ -98,10 +87,27 @@ public class Player : Singleton<Player>, IGameObject
             }
         }
 
+        ////캐릭터가 낙하중인지 판단한다.
+        if (rb.velocity.y < 0)  //하강
+        {
+            playerDirctionFlag = true;
+            if (rb.velocity.y <= -9.5f)
+            {
+                //중력가속도가 너무 많이 올라가면 ScaffoldGround 를 뚫고 내려감 - 방지
+                rb.velocity = new Vector2(rb.velocity.x, -9.5f);
+            }
+        }
+        else if(rb.velocity.y > 0) //상승
+        {
+            playerDirctionFlag = false;
+        }
         
     }//public void GameUpdate() 종료
 
-
+    public float GetPlayerYVelocity()
+    {
+        return rb.velocity.y;
+    }
 
     private void DirectionInit(int direction) //0오른쪽, 1왼쪽
     {
@@ -123,11 +129,10 @@ public class Player : Singleton<Player>, IGameObject
 
     private void FixedUpdate()
     {
-        //좌우 키보드 입력.
-        horizontal = Input.GetAxis("Horizontal");
-
+       
         if (Input.GetKey(KeyCode.RightArrow) == true || Input.GetKey(KeyCode.D) == true)
         {
+          
             DirectionInit(0);
         }
         else if (Input.GetKey(KeyCode.LeftArrow) == true || Input.GetKey(KeyCode.A) == true)
@@ -195,33 +200,17 @@ public class Player : Singleton<Player>, IGameObject
             }
             
         }
+       
     }//OnTriggerStay2D() 종료
-    
+
+   
     private void OnTriggerExit2D(Collider2D other)
     {
         //캐릭터가 낙하 중일때는 점프 할 수 없다.
         jumpState = false;
-
-        //if (other.CompareTag("ScaffoldGround"))
-        //{
-        //    other.isTrigger = true;
-        //    Debug.Log("아웃");
-        //}
-
-
-
     }//OnTriggerExit2D(Collider2D other) 종료
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
- 
-        //if (other.CompareTag("ScaffoldGround") && playerDirctionFlag)
-        //{
-        //    other.isTrigger = false;
-        //    Debug.Log("착치");
-        //}
-        //Debug.Log("착치@@@");
-    }//OnTriggerEnter2D(Collider2D other) 종료
+   
 
 
 }
