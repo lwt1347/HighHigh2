@@ -30,13 +30,7 @@ public class Player : Singleton<Player>, IGameObject
     private bool rightSite;
     
 
-
-    //슈퍼 점프를 막기위한 OnTriggerStay2D(Collider2D other)에 사용될 타임 카운트 변수
-    private float jumpTimer = 0.0f;
-    private float jumpWaitingTime = 0.05f;
-
     //캐릭터가 낙하중인지 판단하기 위한 변수
- 
     private bool dirctionFlag = false;
 
     private void Awake()
@@ -70,14 +64,15 @@ public class Player : Singleton<Player>, IGameObject
         
         //x 방향으로 가할 힘
         float xForce = horizontal * speed * Time.deltaTime;
-        this.gameObject.transform.Translate(xForce, 0, 0);
+        this.gameObject.transform.Translate(xForce, 0 , 0);
+        //rb.AddForce(new Vector2(xForce * 150, 0));
+        
 
         if (jumpState)
         {
             //점프 버튼
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-
                 //땅에 닿으면 한번 위로 올려준다음 Add포스를 사용. 이유: 충돌 판정후에 즉각적으로 올라오지 않고 점프키를 난타하면 점프를 못할 경우 발생.
                 this.gameObject.transform.Translate(0, 0.3f, 0);
                 //translate 와 AddForce의 차이점 = 전자는 +1 만큼 이동 시키고,
@@ -104,10 +99,11 @@ public class Player : Singleton<Player>, IGameObject
         
     }//public void GameUpdate() 종료
 
+    //플레이어 y방향 가속도 알아오기
     public float GetPlayerYVelocity()
     {
         return rb.velocity.y;
-    }
+    }//GetPlayerYVelocity() 종료 
 
     private void DirectionInit(int direction) //0오른쪽, 1왼쪽
     {
@@ -190,15 +186,13 @@ public class Player : Singleton<Player>, IGameObject
     {
         if ((other.CompareTag("ScaffoldGround") || other.CompareTag("Ground")) && other.isTrigger == false)
         {
-            jumpTimer += Time.deltaTime;
-            if (jumpTimer > jumpWaitingTime)
+            //y방향 가속도가 0일때 점프가 가능하다.
+            if (GetPlayerYVelocity() == 0)
             {   
                 //Action
                 //땅에 닿아야 점프 가능
                 jumpState = true;
-                jumpTimer = 0;
             }
-            
         }
        
     }//OnTriggerStay2D() 종료

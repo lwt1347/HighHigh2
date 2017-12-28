@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class ScaffoldGround : Singleton<ScaffoldGround>, IGameObject
 {
-   
+    
     //발판과 상호작용하기 위한 플레이어
     private GameObject player = null;
+
+    //트리거 작동 여부 흙 = ok[true], 벽돌 = no
+    [SerializeField]
+    private bool trigger_Check;
 
     [SerializeField]    //ScaffoldGround 상판 BoxCollider
     private BoxCollider2D thisBoxCollider2D = null;
@@ -51,7 +55,7 @@ public class ScaffoldGround : Singleton<ScaffoldGround>, IGameObject
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other == playerBoxCollider2D)
+        if (trigger_Check&& other == playerBoxCollider2D)
         {
             //바닥 사각형 
             if ((player.GetComponent<Player>().playerDirctionFlag))
@@ -65,7 +69,7 @@ public class ScaffoldGround : Singleton<ScaffoldGround>, IGameObject
     private void OnTriggerExit2D(Collider2D other)
     {
         //바닥 사각형 
-        if (other == playerBoxCollider2D)
+        if (trigger_Check && other == playerBoxCollider2D)
         {
             thisBoxCollider2D.isTrigger = true;
         }

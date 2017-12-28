@@ -37,12 +37,10 @@ public class WallManager : MonoBehaviour, IGameObject
     private float yPositionTemp;
     private bool tagFlag = true;
     private int randomWall_Left = 0;
-    private int randomWall_LeftTemp = -1;
     private int randomWall_LeftSub = 0;
     private int randomWall_LeftSubTemp = -1;
 
     private int randomWall_Right = 0;
-    private int randomWall_RightTemp = -1;
     private int randomWall_RightSub = 0;
     private int randomWall_RightSubTemp = -1;
 

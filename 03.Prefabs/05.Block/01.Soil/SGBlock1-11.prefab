@@ -78,6 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1ece7ee88069924a996d9cd63ca3410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigger_Check: 1
   thisBoxCollider2D: {fileID: 61152535401989802}
   scaffoldGround_RespawnManager: {fileID: 114007428289191986, guid: 4e116ab11a949964982d82a04d30df35,
     type: 2}

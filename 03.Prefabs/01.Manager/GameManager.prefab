@@ -54,5 +54,7 @@ MonoBehaviour:
   player: {fileID: 1857244128649948, guid: 1b7ce064de37a7348b987b696eb2b278, type: 2}
   scaffoldGround_RespawnManager: {fileID: 1301797936654144, guid: 4e116ab11a949964982d82a04d30df35,
     type: 2}
+  trap_Manager: {fileID: 1684344349550364, guid: 878398e465d68de44a35c2d95c776047,
+    type: 2}
   wall_Manager: {fileID: 1743482087473732, guid: f25f234c2716db748a50087c1e97ee4c,
     type: 2}
