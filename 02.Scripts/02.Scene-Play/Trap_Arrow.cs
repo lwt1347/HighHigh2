@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trap_Arrow : TrapCenter
+public class Trap_Arrow : Trap_Arrow_Check
 {
     [SerializeField]
     private Rigidbody2D rb;
@@ -10,7 +10,8 @@ public class Trap_Arrow : TrapCenter
     private void Start()
     {
         //500f 만큼의 힘으로 화살을 발사한다.
-        rb.AddForce(new Vector2(350f, 0));
+        rb.AddForce(new Vector2(arrowSpeed, 0));
+        
     }
     
     private void OnTriggerEnter2D(Collider2D other)

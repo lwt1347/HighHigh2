@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour {
     //좌우벽 매니저 wallManager [변수명 오류남]
     [SerializeField]
     private GameObject wall_Manager = null;
+
+    [SerializeField]
+    private GameObject background_Manager = null;
     
     private void Awake()
     {
@@ -42,7 +45,10 @@ public class GameManager : MonoBehaviour {
         trap_Manager.GetComponent<TrapManager>().Set_StartCoroutine(scaffoldGround_RespawnManager.GetComponent<ScaffoldGround_RespawnManager>());
         
         wall_Manager = Instantiate(wall_Manager) as GameObject;
-        
+
+        background_Manager = Instantiate(background_Manager) as GameObject;
+
+
     }//Start() 종료
     
     void Update () {
@@ -55,6 +61,9 @@ public class GameManager : MonoBehaviour {
 
         //벽 매니저
         wall_Manager.GetComponent<WallManager>().GameUpdate();
-        
+
+        //배경 매니저
+        background_Manager.GetComponent<BackgroundManager>().GameUpdate();
+
     }//Update () 종료
 }

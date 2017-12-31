@@ -11,7 +11,10 @@ public class Trap_Arrow_Check : TrapCenter
 
     [SerializeField]
     private GameObject arrow_1;
+
+    public float arrowSpeed;
     
+
     //격발 한 번만
     private bool trigger_Flag = true;
 
@@ -23,11 +26,26 @@ public class Trap_Arrow_Check : TrapCenter
             trigger_Flag = false;
             if (other.CompareTag("Player"))
             {
+                if (this.CompareTag("Trap-ArrowLeft-Check"))
+                {
+                    arrowSpeed = 350f;
+                }
+                else if (this.CompareTag("Trap-ArrowRight-Check"))
+                {
+                    arrowSpeed = -350f;
+                }
+
                 for (int i=0; i< arrowStartingAnim.Length; i++)
                 {
                     arrowStartingAnim[i].SetTrigger("IsCheck");
                     arrow_1 = Instantiate(arrow_1) as GameObject;
+
+                    if (this.arrowSpeed < 0) {
+                        arrow_1.transform.localScale = new Vector2(-1, arrow_1.transform.localScale.y);
+                    }
+                    arrow_1.GetComponent<Trap_Arrow>().arrowSpeed = this.arrowSpeed;
                     arrow_1.transform.position = new Vector2(arrowStartingAnim[i].transform.position.x, arrowStartingAnim[i].transform.position.y);
+                    
                 }
             }
         }

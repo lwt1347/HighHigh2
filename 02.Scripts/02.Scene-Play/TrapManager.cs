@@ -16,6 +16,9 @@ public class TrapManager : ScaffoldGround_RespawnManager
     //함정이 설치될 발판
     private int randomTrapScaffold = 0;
 
+    //함정이 몇개 설치될 것인가.
+    private int addTrapCountValue = 0;
+
     //발판 위치 알아오기
     private ScaffoldGround_RespawnManager scaffoldGround_RespawnManager;
     
@@ -25,6 +28,9 @@ public class TrapManager : ScaffoldGround_RespawnManager
     //발판 템프 변수
     protected GameObject trapCenterTemp;
     
+     [SerializeField]
+    private Transform addTrapTempPosPosition;
+
     //함정
     [SerializeField]
     private GameObject[] trap;
@@ -117,7 +123,7 @@ public class TrapManager : ScaffoldGround_RespawnManager
             tempPosPosition.position = new Vector2((posDefault[randomTrapScaffold].transform.position.x - 0.2f) + Random.Range(0, 0.4f), 
                 (scaffoldGround_RespawnManager.posDefaultTemp[0] - 0.5f) + Random.Range(0, 1.0f));
             
-            if (randomTrapScaffold != 0)
+            if (randomTrapScaffold > 1)
             {
                 randomRange = Random.Range(stagePerBigScaffoldTemp_Start, stagePerBigScaffoldTemp_End);
             
@@ -148,50 +154,69 @@ public class TrapManager : ScaffoldGround_RespawnManager
             //생성된 바닥의 종류에 따라 함정 개수 및 위치 변경해야된다.
             offSetHeightPosition = tempPosPosition.transform.position.y;
 
-            if (randomTrapScaffold == 0)
+            if (randomTrapScaffold <= 1)
             {
-                //좌측 벽에 석궁 설치
-                randomRangeTrap = 0;
-           
+                //0  = 좌, 1 = 우
+                //좌, 우측 벽에 석궁 설치
+                randomRangeTrap = randomTrapScaffold;
             } else {
-                randomRangeTrap = Random.Range(1, trap.Length);
+                randomRangeTrap = Random.Range(2, trap.Length);
             }
 
-            if (randomRangeTrap == 1) //톱니
+            if (randomRangeTrap == 2) //톱니
             {
+                //톱니 하나 설치
+                addTrapCountValue = 1;
                 offSetHeightPosition = tempPosPosition.transform.position.y;
             }
-            else if (randomRangeTrap == 2) //창
+            else if (randomRangeTrap == 3) //창
             {
+                //창 1~3개 설치
+                addTrapCountValue = Random.Range(1, 4);
                 offSetHeightPosition = tempPosPosition.transform.position.y + offSetHeight/2 + 0.33f;
             }
-            else if (randomRangeTrap == 3)// 가시
+            else if (randomRangeTrap == 4)// 가시
             {
+                //가시 1~3개 설치
+                addTrapCountValue = Random.Range(1, 4);
                 offSetHeightPosition = tempPosPosition.transform.position.y + offSetHeight/2 + 0.1f;
             }
 
-            if (randomTrapScaffold == 0) {
+            if (randomTrapScaffold <= 1) {
+                //석궁 하나 설치
+                addTrapCountValue = 1;
                 //석궁은 x 축으로 변함 없음.
-                tempPosPosition.transform.position = new Vector2(posDefault[0].transform.position.x,
+                tempPosPosition.transform.position = new Vector2(posDefault[randomTrapScaffold].transform.position.x,
                       offSetHeightPosition);
-                
             }
-            else
+
+            AddTrap(i, addTrapCountValue);
+           
+        }//for (int i = 0; i < forTemp; i++) 종료
+
+    }//MakeTrapScaffoldGround() 종료
+
+    private void AddTrap(int i, int forValue)
+    {
+        for (int j=0; j< forValue; j++) { 
+            if (randomTrapScaffold > 1)
             {
                 //함정 위치 선정
-                tempPosPosition.transform.position = new Vector2(tempPosPosition.transform.position.x - (offSetWidth / 2) + Random.Range(0, offSetWidth),
+                addTrapTempPosPosition.transform.position = new Vector2(tempPosPosition.transform.position.x - (offSetWidth / 2) + Random.Range(0, offSetWidth),
                       offSetHeightPosition);
             }
 
             trapCenterTemp = GameObject.Instantiate(
                     trap[randomRangeTrap],
-                    tempPosPosition.transform.position,
+                    addTrapTempPosPosition.transform.position,
                     posDefault[i].transform.rotation);
 
             trapList.Add(trapCenterTemp);
-        }//for (int i = 0; i < forTemp; i++) 종료
+        }
 
-    }//MakeTrapScaffoldGround() 종료
+    }
+
+
 }
 
 

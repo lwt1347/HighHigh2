@@ -53,6 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posDefault:
   - {fileID: 1820378832492946, guid: efc05afb9d0061843b1ca443dd270ec1, type: 2}
+  - {fileID: 1861621457304702, guid: 7bfdd49d8c5b30e4b8ba55d27dd54da4, type: 2}
   - {fileID: 1358537703553748, guid: c0abec1343c53654aad08a43397ca8bc, type: 2}
   - {fileID: 1471834502985158, guid: 6ed8639b5d9601946af2c41b3a767cd5, type: 2}
   - {fileID: 1565724081437732, guid: a7f22052416a7fc448f34a68557282fc, type: 2}
@@ -107,8 +108,11 @@ MonoBehaviour:
     type: 2}
   scaffoldGroundList: []
   delayTime: 2
+  addTrapTempPosPosition: {fileID: 4094423694566076, guid: ddd56e5f4f0e528429b909e9243de371,
+    type: 2}
   trap:
-  - {fileID: 1621714687570284, guid: 963018590d0407149be08eddeffe70ac, type: 2}
+  - {fileID: 1720014854316500, guid: 6e29cb47b46fc4c4cb304e0b6a8435ea, type: 2}
+  - {fileID: 1776841931062928, guid: 9f2d79d6ffef6fd49a5664ff40bc5a6e, type: 2}
   - {fileID: 1349808822229534, guid: 9dd7708ee8eb19542bb8fcefe5e39823, type: 2}
   - {fileID: 1986272852909334, guid: b8987228b0868764e85afcd1d730c3b9, type: 2}
   - {fileID: 1863684515112784, guid: 35b9a92eccaec4c439082bd41e3e2382, type: 2}

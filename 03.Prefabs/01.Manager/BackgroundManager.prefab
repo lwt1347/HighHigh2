@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1922239529910594}
+  m_IsPrefabParent: 1
+--- !u!1 &1922239529910594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4672630993187250}
+  - component: {fileID: 114343409435873884}
+  m_Layer: 0
+  m_Name: BackgroundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4672630993187250
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1922239529910594}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.31954774, y: -7.591442, z: -1.8867188}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114343409435873884
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1922239529910594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b55a7771e36a5c4bbdf92c441224c7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backGrouind_Soil:
+  - {fileID: 1385375498953996, guid: 13f6a5afa85c0f042863223f421149a1, type: 2}
+  - {fileID: 1551053471944424, guid: aa01048d3adda3946b1eb829dd33e09e, type: 2}
+  - {fileID: 1510836325082248, guid: 8191bfc33e3a0f049a63ccd6c43a4e13, type: 2}
+  - {fileID: 1423438137016104, guid: 789f769936ed45a41861afa0e6f90233, type: 2}
+  backGrouind_Brisk:
+  - {fileID: 1617860671798418, guid: d2bfcede8c2033942afe73ea59a3e7a5, type: 2}
+  - {fileID: 1009061748997204, guid: 32120aca67d6c1443b52b13138e43986, type: 2}
+  - {fileID: 1337082725034922, guid: 8a4583da6d0dc614fa68333d7b530da5, type: 2}
+  - {fileID: 1044537689111436, guid: 5849136829b47a64396361a3e9b808be, type: 2}

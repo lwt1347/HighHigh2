@@ -58,3 +58,5 @@ MonoBehaviour:
     type: 2}
   wall_Manager: {fileID: 1743482087473732, guid: f25f234c2716db748a50087c1e97ee4c,
     type: 2}
+  background_Manager: {fileID: 1922239529910594, guid: 64514b68b299b4d4ea270de5b3f12347,
+    type: 2}

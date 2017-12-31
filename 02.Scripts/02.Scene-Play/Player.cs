@@ -193,6 +193,9 @@ public class Player : Singleton<Player>, IGameObject
                 //땅에 닿아야 점프 가능
                 jumpState = true;
             }
+        }else if (other.CompareTag("WallScaffoldGround"))
+        {
+            jumpState = true;
         }
        
     }//OnTriggerStay2D() 종료
