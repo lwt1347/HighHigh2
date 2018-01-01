@@ -20,7 +20,10 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField]
     private GameObject background_Manager = null;
-    
+
+    [SerializeField]
+    private GameObject monster_Manager = null;
+
     private void Awake()
     {
         //해상도 600:1024 고정
@@ -36,18 +39,24 @@ public class GameManager : MonoBehaviour {
 
         //발판 매니저 생성
         scaffoldGround_RespawnManager = Instantiate(scaffoldGround_RespawnManager) as GameObject;
-        scaffoldGround_RespawnManager.GetComponent<ScaffoldGround_RespawnManager>().scaffoldGround_RespawnManagerInit(player);
+        scaffoldGround_RespawnManager.GetComponent<ScaffoldGround_RespawnManager>().RespawnManagerInit(player);
         scaffoldGround_RespawnManager.GetComponent<ScaffoldGround_RespawnManager>().Set_StartCoroutine();
 
         //함정 매니저 생성
         trap_Manager = Instantiate(trap_Manager) as GameObject;
-        trap_Manager.GetComponent<TrapManager>().scaffoldGround_RespawnManagerInit(player);
+        trap_Manager.GetComponent<TrapManager>().RespawnManagerInit(player);
         trap_Manager.GetComponent<TrapManager>().Set_StartCoroutine(scaffoldGround_RespawnManager.GetComponent<ScaffoldGround_RespawnManager>());
-        
+
+        //몬스터 매니저 생성
+        monster_Manager = Instantiate(monster_Manager) as GameObject;
+        monster_Manager.GetComponent<MonsterManager>().MonsterManagerInit(player);
+
+        //벽 매니저 생성
         wall_Manager = Instantiate(wall_Manager) as GameObject;
 
+        //배경 매니저 생성
         background_Manager = Instantiate(background_Manager) as GameObject;
-
+        
 
     }//Start() 종료
     

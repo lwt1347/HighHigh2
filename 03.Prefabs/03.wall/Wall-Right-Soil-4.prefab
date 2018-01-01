@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 61267328511825426}
   m_Layer: 0
   m_Name: Wall-Right-Soil-4
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

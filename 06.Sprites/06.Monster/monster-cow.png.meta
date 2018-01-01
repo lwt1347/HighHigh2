@@ -1,19 +1,17 @@
 fileFormatVersion: 2
-guid: 202109153f00c164bb0ae9a9fd11358c
-timeCreated: 1514742730
+guid: 3fea76b67a263834d9734a56829138c6
+timeCreated: 1514811328
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: monstercow_0
-    21300002: monstercow_1
-    21300004: monstercow_2
-    21300006: monstercow_3
-    21300008: monstercow_4
-    21300010: monstercow_5
-    21300012: monstercow_6
-    21300014: monstercow_7
-    21300016: monstercow_8
-    21300018: monstercow_9
+    21300000: monster-cow_0
+    21300002: monster-cow_1
+    21300004: monster-cow_2
+    21300006: monster-cow_3
+    21300008: monster-cow_4
+    21300010: monster-cow_5
+    21300012: monster-cow_6
+    21300014: monster-cow_7
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -97,139 +95,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: monstercow_0
+      name: monster-cow_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 244
+        x: 18
+        y: 240
+        width: 109
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monster-cow_1
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 231
+        width: 114
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monster-cow_2
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 127
         width: 118
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: monstercow_1
+      name: monster-cow_3
       rect:
         serializedVersion: 2
-        x: 166
-        y: 235
-        width: 118
+        x: 183
+        y: 122
+        width: 116
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: monstercow_2
+      name: monster-cow_4
       rect:
         serializedVersion: 2
-        x: 4
-        y: 131
-        width: 118
+        x: 345
+        y: 142
+        width: 113
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monster-cow_5
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 20
+        width: 114
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: monster-cow_6
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 23
+        width: 116
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: monstercow_3
+      name: monster-cow_7
       rect:
         serializedVersion: 2
-        x: 172
-        y: 126
+        x: 353
+        y: 15
         width: 118
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: monstercow_4
-      rect:
-        serializedVersion: 2
-        x: 334
-        y: 146
-        width: 118
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: monstercow_5
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 24
-        width: 118
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: monstercow_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 27
-        width: 118
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: monstercow_7
-      rect:
-        serializedVersion: 2
-        x: 343
-        y: 19
-        width: 118
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: monstercow_8
-      rect:
-        serializedVersion: 2
-        x: 329
-        y: 188
-        width: 2
-        height: 3
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: monstercow_9
-      rect:
-        serializedVersion: 2
-        x: 110
-        y: 101
-        width: 3
-        height: 3
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

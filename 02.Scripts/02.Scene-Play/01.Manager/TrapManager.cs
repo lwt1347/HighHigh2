@@ -167,7 +167,21 @@ public class TrapManager : ScaffoldGround_RespawnManager
             {
                 //톱니 하나 설치
                 addTrapCountValue = 1;
-                offSetHeightPosition = tempPosPosition.transform.position.y;
+
+                //아래 위로
+                //스프라이트 크기 알아오기
+                //scaffoldGroundTemp.GetComponent<SpriteRenderer>().size.y
+                if (50 < Random.Range(0, 100))
+                {
+                    //위쪽 에 설치
+                    offSetHeightPosition = tempPosPosition.transform.position.y + offSetHeight / 2 - (Random.Range(1, 5) / 30f);
+                }
+                else
+                {
+                    //아래쪽 설치
+                    offSetHeightPosition = tempPosPosition.transform.position.y + offSetHeight / 2 + (Random.Range(1, 5) / 30f) - scaffoldGroundTemp.GetComponent<SpriteRenderer>().size.y;
+                }
+                
             }
             else if (randomRangeTrap == 3) //창
             {
@@ -198,11 +212,11 @@ public class TrapManager : ScaffoldGround_RespawnManager
 
     private void AddTrap(int i, int forValue)
     {
-        for (int j=0; j< forValue; j++) { 
+        for (int j = 0; j < forValue; j++) { 
             if (randomTrapScaffold > 1)
             {
                 //함정 위치 선정
-                addTrapTempPosPosition.transform.position = new Vector2(tempPosPosition.transform.position.x - (offSetWidth / 2) + Random.Range(0, offSetWidth),
+                addTrapTempPosPosition.transform.position = new Vector2(tempPosPosition.transform.position.x - (offSetWidth / 4) + Random.Range(0, offSetWidth/2),
                       offSetHeightPosition);
             }
 

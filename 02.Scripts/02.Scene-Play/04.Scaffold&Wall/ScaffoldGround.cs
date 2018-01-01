@@ -55,7 +55,8 @@ public class ScaffoldGround : Singleton<ScaffoldGround>, IGameObject
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (trigger_Check&& other == playerBoxCollider2D)
+        ////캐릭터가 발판을 뚫고 지나서 안착할 수 있도록 하며, 몬스터의 경우에 발판을 밟을수 있도록 한다.
+        if (trigger_Check && ((other == playerBoxCollider2D) || other.CompareTag("Monster")))
         {
             //바닥 사각형 
             if ((player.GetComponent<Player>().playerDirctionFlag))
@@ -68,8 +69,8 @@ public class ScaffoldGround : Singleton<ScaffoldGround>, IGameObject
     
     private void OnTriggerExit2D(Collider2D other)
     {
-        //바닥 사각형 
-        if (trigger_Check && other == playerBoxCollider2D)
+        //바닥 사각형 //캐릭터가 발판을 뚫고 지나서 안착할 수 있도록 하며, 몬스터의 경우에 발판을 밟을수 있도록 한다.
+        if (trigger_Check && ((other == playerBoxCollider2D) || other.CompareTag("Monster")))
         {
             thisBoxCollider2D.isTrigger = true;
         }

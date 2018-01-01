@@ -7,6 +7,7 @@ public class ScaffoldGround_RespawnManager : MonoBehaviour, IGameObject
     //발판이 생길 위치
     [SerializeField]
     protected GameObject[] posDefault;
+
     [SerializeField]
     public float[] posDefaultTemp;
     
@@ -98,10 +99,10 @@ public class ScaffoldGround_RespawnManager : MonoBehaviour, IGameObject
     }//Removed(ScaffoldGround target) 종료
 
     //발판과 상호작용하기 위해 플레이어 정보를 가져온다.
-    public void scaffoldGround_RespawnManagerInit(GameObject player)
+    public void RespawnManagerInit(GameObject player)
     {
         this.player = player;
-    }//scaffoldGround_RespawnManagerInit(GameObject player) 종료
+    }//RespawnManagerInit(GameObject player) 종료
 
     //올라간 미터에 따라 난이도 증가
     private int temp = 0;

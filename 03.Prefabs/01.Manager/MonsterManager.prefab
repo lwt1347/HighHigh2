@@ -9,56 +9,49 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1145000028765044}
+  m_RootGameObject: {fileID: 1135433454738840}
   m_IsPrefabParent: 1
---- !u!1 &1145000028765044
+--- !u!1 &1135433454738840
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4457676024775378}
-  - component: {fileID: 114794173136590004}
+  - component: {fileID: 4818251594286104}
+  - component: {fileID: 114387172980028948}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: MonsterManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4457676024775378
+--- !u!4 &4818251594286104
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1145000028765044}
+  m_GameObject: {fileID: 1135433454738840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 7.3583984}
+  m_LocalPosition: {x: 0.44313174, y: 3.3009026, z: 0.06777918}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114794173136590004
+--- !u!114 &114387172980028948
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1145000028765044}
+  m_GameObject: {fileID: 1135433454738840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1a7693f4fae2db48b5bea9dbfe3e088, type: 3}
+  m_Script: {fileID: 11500000, guid: ec073b8ca93589943a2cd0d310daff4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1857244128649948, guid: 1b7ce064de37a7348b987b696eb2b278, type: 2}
-  scaffoldGround_RespawnManager: {fileID: 1301797936654144, guid: 4e116ab11a949964982d82a04d30df35,
+  delayTime: 2
+  Monster_Cow: {fileID: 1175051711337462, guid: c9285a6b8fba5cb41ae031aad70b23ab,
     type: 2}
-  trap_Manager: {fileID: 1684344349550364, guid: 878398e465d68de44a35c2d95c776047,
-    type: 2}
-  wall_Manager: {fileID: 1743482087473732, guid: f25f234c2716db748a50087c1e97ee4c,
-    type: 2}
-  background_Manager: {fileID: 1922239529910594, guid: 64514b68b299b4d4ea270de5b3f12347,
-    type: 2}
-  monster_Manager: {fileID: 1135433454738840, guid: b6662e99ee19dc148bcbae01686c1e8c,
-    type: 2}
+  posDefault: {fileID: 1620435374667038, guid: f755068774a52d04d9db5c2ee387ebe6, type: 2}
