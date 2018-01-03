@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1591479324783750}
+  m_IsPrefabParent: 1
+--- !u!1 &1591479324783750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4330982600297800}
+  - component: {fileID: 114762872018630806}
+  m_Layer: 0
+  m_Name: NatureManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4330982600297800
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1591479324783750}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114762872018630806
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1591479324783750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35cdfc45a4d38a84683726fb1f93347b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  posDefault:
+  - {fileID: 1912131925764952, guid: dab6a1bfcbbb48e4e9cdf681e7824039, type: 2}
+  - {fileID: 1650356004093604, guid: 1ab3ff3631a0f3547bbd6c71669ae3a8, type: 2}
+  - {fileID: 1609503133556776, guid: 65170115123e3c541bfc9847dfc5041e, type: 2}
+  - {fileID: 1367745836147304, guid: 1d9d53c86f0290b4989594193e5c1e84, type: 2}
+  - {fileID: 1436278416117098, guid: b6020b361bcd13f409126c4b6d9e0a00, type: 2}
+  tempPosPosition: {fileID: 4808986262487866, guid: 38a954a69fae89f429c730a72c2072b8,
+    type: 2}
+  delayTime: 5
+  nature:
+  - {fileID: 1450036999824712, guid: cfe74540f067a38429a5d5336381451a, type: 2}

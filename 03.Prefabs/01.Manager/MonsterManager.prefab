@@ -54,4 +54,7 @@ MonoBehaviour:
   delayTime: 2
   Monster_Cow: {fileID: 1175051711337462, guid: c9285a6b8fba5cb41ae031aad70b23ab,
     type: 2}
+  Monster_Bird: {fileID: 1567764545437606, guid: 1fe9de8fc785cf749a3b6ac57b1b06ce,
+    type: 2}
   posDefault: {fileID: 1620435374667038, guid: f755068774a52d04d9db5c2ee387ebe6, type: 2}
+  posTemp: {fileID: 1615856672019086, guid: ddb7757d6e871134296d1aef68ab16d0, type: 2}

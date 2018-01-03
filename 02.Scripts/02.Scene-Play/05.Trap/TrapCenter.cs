@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrapCenter : MonoBehaviour {
+public class TrapCenter : TrapManager {
     
     //삭제 여부 true 일때 삭제
     public bool removeFlag = false;
     
     //초기화
-    private void Awake()
+    private new void Awake()
     {
         removeFlag = false;
     }//Awake() 종료
@@ -21,4 +21,4 @@ public class TrapCenter : MonoBehaviour {
 
     
 
-    }
+}

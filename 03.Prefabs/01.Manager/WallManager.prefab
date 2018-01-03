@@ -61,12 +61,12 @@ MonoBehaviour:
   - {fileID: 1291869853769224, guid: da893f94cff34aa4e91789818e776274, type: 2}
   - {fileID: 1802321666523234, guid: c48ffff07c1b7894cb66226dd00b042b, type: 2}
   - {fileID: 1796414201516348, guid: 81b3ef748d86f8c4896030213b693e31, type: 2}
-  leftWall_Brisk:
+  leftWall_Brick:
   - {fileID: 1197680039294780, guid: a076a7c9d62076443bc03a5b2e7f256d, type: 2}
   - {fileID: 1381964936714184, guid: 9f969bb9bc82d334aaacd9ebc1814c20, type: 2}
   - {fileID: 1351304514825798, guid: cc23114ee9287f14ea99d76c5edf7ce7, type: 2}
   - {fileID: 1052520077224268, guid: 6fe907b8b454c884eaca9d07c92cf25d, type: 2}
-  rightWall_Brisk:
+  rightWall_Brick:
   - {fileID: 1694832382177986, guid: 02d505edb4c71374b8d4d7aa8631c2ca, type: 2}
   - {fileID: 1461843057725888, guid: 0379bd7e3b8995441a8a66dfc5aa3fb3, type: 2}
   - {fileID: 1980329486346310, guid: 836ff7b996192cf448caab83774f7bd0, type: 2}

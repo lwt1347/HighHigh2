@@ -16,7 +16,7 @@ public class BackgroundManager : MonoBehaviour, IGameObject
     private GameObject[] backGrouind_Soil = null;
 
     [SerializeField]
-    private GameObject[] backGrouind_Brisk = null;
+    private GameObject[] backGrouind_Brick = null;
 
     protected float yPositionTemp;
     protected bool tagFlag = true;
@@ -44,10 +44,10 @@ public class BackgroundManager : MonoBehaviour, IGameObject
             }
         }else if (value == 1)
         {
-            backGrouind = new GameObject[backGrouind_Brisk.Length];    //할당
-            for (int i = 0; i < backGrouind_Brisk.Length; i++)
+            backGrouind = new GameObject[backGrouind_Brick.Length];    //할당
+            for (int i = 0; i < backGrouind_Brick.Length; i++)
             {
-                backGrouind[i] = GameObject.Instantiate(backGrouind_Brisk[i]) as GameObject;
+                backGrouind[i] = GameObject.Instantiate(backGrouind_Brick[i]) as GameObject;
             }
         }
     }//Change_Thema(int value) 종료

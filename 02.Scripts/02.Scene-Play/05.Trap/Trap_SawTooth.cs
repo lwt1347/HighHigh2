@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class Trap_SawTooth : TrapCenter, IGameObject
 {
-    //1번 톱니
-    public void GameUpdate()
-    {
-        
-    }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {

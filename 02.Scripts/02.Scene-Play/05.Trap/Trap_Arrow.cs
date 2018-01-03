@@ -20,6 +20,10 @@ public class Trap_Arrow : Trap_Arrow_Check
         {
             Debug.Log("플레이어 제거");
             
+        }else if (other.GetComponent<DestroyArea>())
+        {
+                //객체 파괴 방법. Destroy 방법
+                Destroy(this.gameObject);
         }
         
     }

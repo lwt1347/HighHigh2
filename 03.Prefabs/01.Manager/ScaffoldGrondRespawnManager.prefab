@@ -104,4 +104,5 @@ MonoBehaviour:
   - {fileID: 1637625962448014, guid: 3b5cd1fa2b76b774e8d5ef177284903d, type: 2}
   tempPosPosition: {fileID: 4491640525479348, guid: 01585505d014d244596257cfa094f013,
     type: 2}
-  delayTime: 2
+  scaffoldGroundList: []
+  delayTime: 1

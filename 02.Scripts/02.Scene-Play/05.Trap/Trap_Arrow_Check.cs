@@ -14,18 +14,22 @@ public class Trap_Arrow_Check : TrapCenter
 
     public float arrowSpeed;
     
-
     //격발 한 번만
     private bool trigger_Flag = true;
 
+    private new void Awake()
+    {
+        trigger_Flag = true;
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (trigger_Flag)
         {
-            trigger_Flag = false;
+            
             if (other.CompareTag("Player"))
             {
+                trigger_Flag = false;
                 if (this.CompareTag("Trap-ArrowLeft-Check"))
                 {
                     arrowSpeed = 350f;
@@ -34,7 +38,7 @@ public class Trap_Arrow_Check : TrapCenter
                 {
                     arrowSpeed = -350f;
                 }
-
+               
                 for (int i=0; i< arrowStartingAnim.Length; i++)
                 {
                     arrowStartingAnim[i].SetTrigger("IsCheck");

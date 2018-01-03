@@ -7,8 +7,7 @@ public class ScaffoldGround_RespawnManager : MonoBehaviour, IGameObject
     //발판이 생길 위치
     [SerializeField]
     protected GameObject[] posDefault;
-
-    [SerializeField]
+    
     public float[] posDefaultTemp;
     
     //발판 흙
@@ -31,6 +30,8 @@ public class ScaffoldGround_RespawnManager : MonoBehaviour, IGameObject
 
     //발판 리스트
     public List<GameObject> scaffoldGroundList = new List<GameObject>();
+
+  
 
     //발판 생성 속도
     [SerializeField]
@@ -76,11 +77,14 @@ public class ScaffoldGround_RespawnManager : MonoBehaviour, IGameObject
         while (true)
         {
             yield return new WaitForSeconds(delayTime);
+            
+            if (CameraFollow.Instance.setNewPosition) {
+                //TrapManager 에서도 사용
 
-            //발판 생성
-            DistroyScaffoldGround(); //파괴 설정
-            ScaffoldGroundRemoved(); //파괴
-            MakeScaffoldGround();
+                //발판 생성
+                ScaffoldGroundRemoved(); //파괴
+                MakeScaffoldGround();
+            }
         }
     }//IEnumerator RespawnScaffoldGround() 종료
 
@@ -90,8 +94,8 @@ public class ScaffoldGround_RespawnManager : MonoBehaviour, IGameObject
         scaffoldGroundList.ForEach((target) =>
         {
             if (target.GetComponent<ScaffoldGround>().removeFlag) {
-                //scaffoldGroundList.Remove(target);
-                //Destroy(target.gameObject);
+                scaffoldGroundList.Remove(target);
+                Destroy(target.gameObject);
             }
 
         });
@@ -105,21 +109,7 @@ public class ScaffoldGround_RespawnManager : MonoBehaviour, IGameObject
     }//RespawnManagerInit(GameObject player) 종료
 
     //올라간 미터에 따라 난이도 증가
-    private int temp = 0;
-    public void DistroyScaffoldGround()
-    {
-        //아랫발판 삭제 루틴
-        if (scaffoldGroundList.Count > 50)
-        {
-            temp = scaffoldGroundList.Count - 50;
-            for (int i=0; i < temp; i++)
-            {
-                scaffoldGroundList[i].GetComponent<ScaffoldGround>().setDestroy();
-            }
-        }
-        
-    }//DistroyScaffoldGround() 종료
-
+  
     //실제 발판을 더할 함수 //발판 추가와 함정 추가의 루틴이 달라진다.
     void MakeScaffoldGround()
     {

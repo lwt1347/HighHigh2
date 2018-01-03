@@ -41,31 +41,20 @@ public class TrapManager : ScaffoldGround_RespawnManager
         {
             yield return new WaitForSeconds(delayTime);
 
-           //발판, 함정 제거
-            DistroyTrap();
-            TrapRemoved();
-            //발판 생성
-            MakeTrapScaffoldGround();
+            if (CameraFollow.Instance.setNewPosition)
+            { //ScaffoldGround_RespawnManager에서도 사용
 
+                //발판, 함정 제거
+                TrapRemoved();
+                //발판 생성
+                MakeTrapScaffoldGround();
+                CameraFollow.Instance.setNewPosition = false;
+                //윗 코드가 이곳에만 있는 이유는 스카폴드 매니저가 먼저 실행되기 때문에 그곳에서 false 를 하면 이곳으로 들어오지 않아서이다.
+            }
         }
     }//IEnumerator RespawnScaffoldGround() 종료
 
     
-    public void DistroyTrap()
-    {
-        //삭제될 발판 체크
-        if (trapList.Count > 20)
-        {
-            trapListRemoveTemp = trapList.Count - 20;
-            for (int i = 0; i < trapListRemoveTemp; i++)
-            {
-                trapList[i].GetComponent<TrapCenter>().setDestroy();
-            }
-        }
-    }//DistroyScaffoldGround() 종료
-
-
-
        //삭제 체크된 발판 삭제
     public void TrapRemoved()
     {
@@ -73,8 +62,8 @@ public class TrapManager : ScaffoldGround_RespawnManager
         {
             if (target.GetComponent<TrapCenter>().removeFlag)
             {
-                //trapList.Remove(target);
-                //Destroy(target.gameObject);
+                trapList.Remove(target);
+                Destroy(target.gameObject);
             }
         });
     }//TrapRemoved()종료
@@ -216,8 +205,8 @@ public class TrapManager : ScaffoldGround_RespawnManager
             if (randomTrapScaffold > 1)
             {
                 //함정 위치 선정
-                addTrapTempPosPosition.transform.position = new Vector2(tempPosPosition.transform.position.x - (offSetWidth / 4) + Random.Range(0, offSetWidth/2),
-                      offSetHeightPosition);
+                addTrapTempPosPosition.transform.position = new Vector3(tempPosPosition.transform.position.x - (offSetWidth / 4) + Random.Range(0, offSetWidth/2),
+                      offSetHeightPosition, -1.1f);
             }
 
             trapCenterTemp = GameObject.Instantiate(

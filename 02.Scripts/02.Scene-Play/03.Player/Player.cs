@@ -15,6 +15,9 @@ public class Player : Singleton<Player>, IGameObject
     [SerializeField]
     private BoxCollider2D boxCollider2D;
 
+    [SerializeField]
+    private GameObject dieEffect;
+
     //플레이어 기본 정보
     private int hp = 1;
     private int initHp = 1;
@@ -40,7 +43,8 @@ public class Player : Singleton<Player>, IGameObject
 
         //초기 시작 오른쪽 향함
         DirectionInit(0);
-        
+
+       
 
     }//private void Awake() 종료
     
@@ -96,7 +100,11 @@ public class Player : Singleton<Player>, IGameObject
         {
             playerDirctionFlag = false;
         }
+
         
+            
+        
+
     }//public void GameUpdate() 종료
 
     //플레이어 y방향 가속도 알아오기
@@ -121,7 +129,13 @@ public class Player : Singleton<Player>, IGameObject
         }
     }//DirectionInit(int direction) 종료
 
+    public void DieEffect()
+    {
+        //폭발 이벤트
+        Instantiate(dieEffect, transform.position, transform.rotation); //캐릭터 위치에서
+        //PariclesSystemAutoDestroy 스크립트를 붙여주면 자동 제거
 
+    }//DieEffect() 종료
 
     private void FixedUpdate()
     {

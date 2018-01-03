@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private GameObject monster_Manager = null;
 
+    [SerializeField]
+    private GameObject nature_Manager = null;
+
     private void Awake()
     {
         //해상도 600:1024 고정
@@ -45,11 +48,17 @@ public class GameManager : MonoBehaviour {
         //함정 매니저 생성
         trap_Manager = Instantiate(trap_Manager) as GameObject;
         trap_Manager.GetComponent<TrapManager>().RespawnManagerInit(player);
+        //코루틴을 이곳에서 생성한 오브젝트로 돌려야 한다.
         trap_Manager.GetComponent<TrapManager>().Set_StartCoroutine(scaffoldGround_RespawnManager.GetComponent<ScaffoldGround_RespawnManager>());
 
         //몬스터 매니저 생성
         monster_Manager = Instantiate(monster_Manager) as GameObject;
         monster_Manager.GetComponent<MonsterManager>().MonsterManagerInit(player);
+
+        //자연재해 매니저 생성
+        nature_Manager = Instantiate(nature_Manager) as GameObject;
+        nature_Manager.GetComponent<NatureManager>().NatureManagerInit(player);
+        nature_Manager.GetComponent<NatureManager>().Set_StartCoroutine();
 
         //벽 매니저 생성
         wall_Manager = Instantiate(wall_Manager) as GameObject;

@@ -62,3 +62,5 @@ MonoBehaviour:
     type: 2}
   monster_Manager: {fileID: 1135433454738840, guid: b6662e99ee19dc148bcbae01686c1e8c,
     type: 2}
+  nature_Manager: {fileID: 1591479324783750, guid: 4d76d1b66c2b13446b87982979d13b64,
+    type: 2}

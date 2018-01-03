@@ -33,11 +33,11 @@ public class WallManager : MonoBehaviour, IGameObject
 
     //좌측 흙벽
     [SerializeField]
-    private GameObject[] leftWall_Brisk = null;
+    private GameObject[] leftWall_Brick = null;
 
     //우측 흙벽
     [SerializeField]
-    private GameObject[] rightWall_Brisk = null;
+    private GameObject[] rightWall_Brick = null;
 
 
     //테마 스테이지 1~4 //흙, 벽, 아이스, 불
@@ -75,16 +75,16 @@ public class WallManager : MonoBehaviour, IGameObject
         }
         else if (value == 1)
         {
-            leftWall = new GameObject[leftWall_Brisk.Length];    //할당
-            for (int i = 0; i < leftWall_Brisk.Length; i++)
+            leftWall = new GameObject[leftWall_Brick.Length];    //할당
+            for (int i = 0; i < leftWall_Brick.Length; i++)
             {
-                leftWall[i] = GameObject.Instantiate(leftWall_Brisk[i]) as GameObject;
+                leftWall[i] = GameObject.Instantiate(leftWall_Brick[i]) as GameObject;
             }
 
-            rightWall = new GameObject[rightWall_Brisk.Length];    //할당
-            for (int i = 0; i < rightWall_Brisk.Length; i++)
+            rightWall = new GameObject[rightWall_Brick.Length];    //할당
+            for (int i = 0; i < rightWall_Brick.Length; i++)
             {
-                rightWall[i] = GameObject.Instantiate(rightWall_Brisk[i]) as GameObject;
+                rightWall[i] = GameObject.Instantiate(rightWall_Brick[i]) as GameObject;
             }
         }
 

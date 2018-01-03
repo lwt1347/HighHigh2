@@ -146,6 +146,7 @@ MonoBehaviour:
   rb: {fileID: 50029351994641360}
   anim: {fileID: 95920849624660124}
   boxCollider2D: {fileID: 61143229512373426}
+  dieEffect: {fileID: 1434971104755056, guid: 347b77e420378524c9a71db0d7d16f7a, type: 2}
   jumpState: 1
 --- !u!212 &212389211895085826
 SpriteRenderer:
